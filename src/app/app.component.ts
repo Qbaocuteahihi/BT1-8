@@ -89,4 +89,14 @@ export class AppComponent {
       0
     );
   }
+  checkout() {
+    const totalPrice = this.getTotalPrice();
+    if (totalPrice > 0) {
+      alert(`Tổng tiền thanh toán: ${totalPrice} VND`);
+      // Optionally clear the cart here
+      this.cart = [];
+    } else {
+      alert('Giỏ hàng của bạn đang trống.');
+    }
+  }
 }
