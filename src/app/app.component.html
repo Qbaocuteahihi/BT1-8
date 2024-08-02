@@ -10,6 +10,8 @@
         <div class="product-title">{{ product.name }}</div>
         <div class="price-sold">
           <div class="product-price">{{ product.price }} đ</div>
+        </div>
+        <div class="price-sold2">
           <div class="product-inStock">Còn lại {{ product.inStock }}</div>
         </div>
         <button [disabled]="product.inStock === 0" (click)="addToCart(i)">

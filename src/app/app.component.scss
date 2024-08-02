@@ -59,7 +59,9 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   padding: 10px;
-  text-align: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
 }
 
 .product img {
