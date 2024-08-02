@@ -1,34 +1,122 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #406e9d;
+  margin: 0;
+  padding: 0;
+}
+
+.header-container {
+  background-color: #0066ff; /* Màu nền của tiêu đề */
+  color: #ffffff; /* Màu chữ của tiêu đề */
+  margin: -8px;
+  padding: 30px;
+  text-align: center;
+}
+
+.header-container h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
 #container {
-  width: 100%;
-  height: 100%;
   display: flex;
+  justify-content: space-around;
+  padding: 20px;
 }
 
-h1 {
-  margin: 0;
-  color: green;
-}
-
-h2 {
-  margin: 0;
-}
 #product-container {
+  width: 45%;
+  height: 100%;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#cart-container {
+  width: 45%;
+  height: 100%;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#product-container h2,
+#cart-container h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.product {
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.product img {
+  width: 200px;
+  height: 200px;
+}
+
+.product-title {
+  font-size: 16px;
+  margin: 10px 0;
+}
+.product-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #f00101;
+}
+.price-sold {
   display: flex;
-  gap: 3rem;
-  // width: 45%;
-  height: fit-content;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.product-inStock {
+  font-size: 14px;
+  color: #999999;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+#cart-container p {
+  margin: 5px 0;
 }
 
 #cart-container {
-  display: flex;
-  // width: 40%;
-  height: fit-content;
+  margin-top: 20px;
 }
 
-#product-card {
-  width: fit-content;
-  height: fit-content;
-  background-color: aqua;
-  padding: 10px 10px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+button.delete-button {
+  background-color: #dc3545;
+}
+
+button.delete-button:hover {
+  background-color: #c82333;
 }

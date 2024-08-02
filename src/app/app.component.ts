@@ -8,7 +8,7 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [RouterOutlet, FormsModule, NgFor, NgIf],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'], // Chú ý đổi từ styleUrl sang styleUrls
 })
 export class AppComponent {
   title = 'first_project';
@@ -16,21 +16,24 @@ export class AppComponent {
   products = [
     {
       id: 1,
-      name: 'Product 1',
-      price: 10000,
-      inStock: 100,
+      name: 'Gấu Bông Capybara Siêu Cute',
+      price: 150000,
+      inStock: 20,
+      image: 'assets/Capy.jpg',
     },
     {
       id: 2,
-      name: 'Product 2',
-      price: 20000,
-      inStock: 5,
+      name: 'Nack Siêu Ngon',
+      price: 7000,
+      inStock: 120,
+      image: 'assets/snack.jpg',
     },
     {
       id: 3,
-      name: 'Product 3',
-      price: 15000,
-      inStock: 7,
+      name: 'Mì Hảo Hảo Siêu Cứu Đói',
+      price: 120000,
+      inStock: 30,
+      image: 'assets/mihaohao.jpg',
     },
   ];
 
@@ -38,27 +41,52 @@ export class AppComponent {
 
   addToCart(index: number) {
     let findIndex = this.cart.findIndex((element) => {
-      return element.id == this.products[index].id;
+      return element.id === this.products[index].id;
     }); // Đi tìm trong giỏ hàng có tồn tại sp mà mình muốn thêm hay không
-    if (findIndex != -1) {
+
+    if (findIndex !== -1) {
       // Nếu tồn tại (index != -1)
-      this.cart[findIndex].quantity += 1;
       if (this.products[index].inStock <= 0) {
         return;
       } else {
+        this.cart[findIndex].quantity += 1;
         this.products[index].inStock--;
-      } // Tăng số lượng lên 1
+        // Tăng số lượng lên 1
+      }
     } else {
       // Nếu không tồn tại
-      this.cart.push({
+      if (this.products[index].inStock > 0) {
         // Thêm sp mới đó vào
-        id: this.products[index].id,
-        name: this.products[index].name,
-        price: this.products[index].price,
-        quantity: 1,
-      });
-      this.products[index].inStock--;
+        this.cart.push({
+          id: this.products[index].id,
+          name: this.products[index].name,
+          price: this.products[index].price,
+          quantity: 1,
+        });
+        this.products[index].inStock--;
+      }
     }
     console.log(this.cart);
+  }
+  removeFromCart(index: number) {
+    const product = this.cart[index];
+    const productInStore = this.products.find((p) => p.id === product.id);
+
+    if (product.quantity > 1) {
+      product.quantity--;
+    } else {
+      this.cart.splice(index, 1);
+    }
+
+    if (productInStore) {
+      productInStore.inStock++;
+    }
+  }
+
+  getTotalPrice(): number {
+    return this.cart.reduce(
+      (total, product) => total + product.price * product.quantity,
+      0
+    );
   }
 }
