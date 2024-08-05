@@ -1,0 +1,6 @@
+<div class="cart-item">
+  <img [src]="product.imageUrl" alt="{{ product.name }}">
+  <h3>{{ product.name }}</h3>
+  <p>{{ product.price }} VND</p>
+  <button (click)="removeFromCart()">Xóa</button>
+</div>

@@ -1,0 +1,12 @@
+<div class="cart">
+  <div ngFor="let product of cart">
+    <div class="product-in-cart">
+      <p>{{ product.name }}</p>
+      <p>{{ product.price }} VND</p>
+      <p>Số lượng: {{ product.quantity }}</p>
+      <button class="delete-button" (click)="removeFromCart(i)">Xóa</button>
+  </div>
+  <div class="total-cost">
+    Tổng tiền: {{ totalCost }} VND
+  </div>
+</div>

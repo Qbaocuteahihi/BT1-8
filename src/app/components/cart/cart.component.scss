@@ -1,0 +1,36 @@
+/* src/app/cart/cart.component.scss */
+#cart-container {
+  width: 45%;
+  height: 100%;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#product-in-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dddddd;
+  padding: 10px 0;
+}
+
+#product-in-cart p {
+  margin: 0;
+}
+
+button.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button.delete-button:hover {
+  background-color: #c82333;
+}

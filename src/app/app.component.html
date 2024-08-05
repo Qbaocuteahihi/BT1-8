@@ -1,39 +1,15 @@
-<div class="header-container">
-  <h1>Cửa Hàng Tạp Hóa Mini</h1>
+<app-navbar></app-navbar>
+<div class="container">
+  @for (product of this.Service.products)
+    <app-product-card [product]="product"></app-product-card>
+  <app-product-list></app-product-list>
+  <app-cart></app-cart>
 </div>
-<div id="container">
-  <div id="product-container">
-    <h2>Product Name</h2>
-    <div *ngFor="let product of products; index as i">
-      <div class="product">
-        <img [src]="product.image" alt="Product Image" />
-        <div class="product-title">{{ product.name }}</div>
-        <div class="price-sold">
-          <div class="product-price">{{ product.price }} đ</div>
-        </div>
-        <div class="price-sold2">
-          <div class="product-inStock">Còn lại {{ product.inStock }}</div>
-        </div>
-        <button [disabled]="product.inStock === 0" (click)="addToCart(i)">
-          Thêm vào giỏ
-        </button>
-      </div>
-    </div>
-  </div>
 
-  <div id="cart-container">
-    <h2>Giỏ hàng</h2>
-    <div *ngFor="let product of cart; index as i">
-      <div id="product-in-cart">
-        <p>{{ product.name }}</p>
-        <p>{{ product.price }} VND</p>
-        <p>Số lượng: {{ product.quantity }}</p>
-        <button class="delete-button" (click)="removeFromCart(i)">Xóa</button>
-      </div>
-    </div>
-    <div>
-      <h2>Tổng tiền: {{ getTotalPrice() }} VND</h2>
-      <button (click)="checkout()">Thanh toán</button>
-    </div>
-  </div>
-</div>
+<h1>
+  Giỏ Hàng
+</h1>
+@for (product of this.Service.cart; track $index){
+  <app-cart [product]="product"></app-cart>
+}
+

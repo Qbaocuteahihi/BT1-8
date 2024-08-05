@@ -1,0 +1,25 @@
+/* src/app/navbar/navbar.component.scss */
+.navbar {
+  background-color: #004080;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.navbar-item {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+}
+
+.navbar-item:hover {
+  text-decoration: underline;
+}
